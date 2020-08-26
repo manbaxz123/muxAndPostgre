@@ -172,15 +172,15 @@ func GetUser(res http.ResponseWriter, req *http.Request) {
 	// 	role   = params["role"]
 	// )
 
-	configure := config.GetConfig()
-	db, err := dao.CreateConnection(configure.Username, configure.DBname, configure.Password)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
-	name, err := dao.GetUser(db)
+	// configure := config.GetConfig()
+	// // db, err := dao.CreateConnection(configure.Username, configure.DBname, configure.Password)
+	// // if err != nil {
+	// // 	log.Fatal(err)
+	// // }
+	// // defer db.Close()
+	// name, err := dao.GetUser(db)
 	encoder := json.NewEncoder(res)
-	encoder.Encode(name)
+	encoder.Encode("Hello")
 }
 
 func InsertNewTaskUser(res http.ResponseWriter, req *http.Request) {
