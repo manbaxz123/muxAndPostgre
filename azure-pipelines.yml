@@ -11,7 +11,7 @@ pool:
 
 variables:
   GOBIN:  '$(GOPATH)/bin' # Go binaries path
-  GOROOT: '/golang' # Go installation path
+  GOROOT: '/golang/root' # Go installation path
   GOPATH: '$(system.defaultWorkingDirectory)/go' # Go workspace path
   modulePath: '$(GOPATH)/src/github.com/$(build.repository.name)' # Path to the module's code
 
@@ -22,7 +22,7 @@ steps:
     mkdir -p '$(modulePath)'
     shopt -s extglob
     shopt -s dotglob
-    mv !(gopath) '$(modulePath)'
+    # mv !(gopath) '$(modulePath)'
     echo '##vso[task.prependpath]$(GOBIN)'
     echo '##vso[task.prependpath]$(GOROOT)/bin'
   displayName: 'Set up the Go workspace'
